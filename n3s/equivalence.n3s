@@ -1,0 +1,31 @@
+@prefix : <http://example.org/ns#> .
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+@prefix list: <http://www.w3.org/2000/10/swap/list#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+# X equivalentTarget Y
+# ..IF X a TargetPolicy then Y a TargetPolicy
+# ..IF <Deontic> action(X) then <Deontic> action(Y)
+(_:A _:B _:X) log:onNegativeSurface {
+    _:A :equivalentTarget _:B .
+    _:A a _:X .
+    () log:onNegativeSurface {
+        _:B a _:X .
+    } . 
+} .
+
+(_:A _:B _:P _:X) log:onNegativeSurface {
+    _:A :equivalentTarget _:B .
+
+    () _:P {
+        _:A :action _:X .
+    }.
+
+    _:P list:in (log:onProhibitionSurface log:onPermissionSurface log:onDutySurface) .
+
+    () log:onNegativeSurface {
+        () _:P {
+            _:B :action _:X .
+        }.
+    } . 
+} .
