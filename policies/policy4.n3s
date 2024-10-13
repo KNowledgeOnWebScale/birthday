@@ -2,7 +2,7 @@
 @prefix log: <http://www.w3.org/2000/10/swap/log#> .
 
 :Room101 
-    a :PolicyTarget ;
+    a :PolicyTarget .
 
 () log:onDutySurface {
     :Room101 :action :WashDishes .
