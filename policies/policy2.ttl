@@ -3,5 +3,5 @@
 :PolicyA 
     a :Policy ;
     :permission [
-        :action :UseBathRoom 
+        :target :UseBathRoom 
     ] .

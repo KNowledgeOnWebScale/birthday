@@ -3,7 +3,7 @@
 :PolicyA 
     a :Policy ;
     :prohibition [
-        :action :TalkLoudly 
+        :target :TalkLoudly 
     ] , [
-        :action :EatLoudly
+        :target :EatLoudly
     ] .

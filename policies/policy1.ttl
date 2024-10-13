@@ -4,5 +4,5 @@
 :PolicyA 
     a :Policy ;
     :prohibition [
-        :action :TalkLoudly 
+        :target :TalkLoudly 
     ].

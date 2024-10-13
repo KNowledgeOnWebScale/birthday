@@ -3,5 +3,5 @@
 :PolicyA 
     a :Policy ;
     :duty [
-        :action :WashDishes
+        :target :WashDishes
     ] .

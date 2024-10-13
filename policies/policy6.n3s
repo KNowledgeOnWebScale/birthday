@@ -6,6 +6,6 @@
 
 () log:onProhibitionSurface {
     () log:onNegativeSurface {
-        :PolicyA :action :TalkLoudly .
+        :PolicyA :target :TalkLoudly .
     } .
 } .
