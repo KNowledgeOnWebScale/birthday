@@ -3,9 +3,9 @@
 
 # show a policy
 (_:S) log:onNegativeSurface {
-    _:S a :Policy .
+    _:S a :PolicyTarget .
     () log:onNegativeAnswerSurface {
-        _:S a :Policy .
+        _:S a :PolicyTarget .
     } .
 } .
 

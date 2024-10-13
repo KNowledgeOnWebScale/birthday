@@ -5,7 +5,9 @@
     a :PolicyTarget .
 
 () log:onProhibitionSurface {
-    () log:onNegativeSurface {
-        :PolicyTargetA :action :TalkLoudly .
-    } .
+    :PolicyTargetA :action :TalkLoudly .
+} .
+
+() log:onProhibitionSurface {
+    :PolicyTargetA :action :EatLoudly .
 } .

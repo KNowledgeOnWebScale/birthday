@@ -6,7 +6,7 @@
 # Prohibition { action X } = Duty { NOT (action X) }
 (_:X _:Y _:G) log:onNegativeSurface {
     _:X 
-        a :Policy .
+        a :PolicyTarget .
 
     () log:onProhibitionSurface _:G .
 
@@ -20,12 +20,12 @@
 # Permission { action X } = NOT { Prohibition action X }
 (_:X _:Y _:G) log:onNegativeSurface {
     _:X 
-        a :Policy .
+        a :PolicyTarget .
 
     () log:onPermissionSurface _:G .
 
     (_:New) log:onNegativeSurface {
-        _:X a :Policy . # Due to a bug in eye this line is needed
+        _:X a :PolicyTarget . # Due to a bug in eye this line is needed
         () log:onNegativeSurface {
             () log:onProhibitionSurface _:G .
         } .
@@ -35,7 +35,7 @@
 # IF Duty { action X } THEN { Permission action X }
 (_:X _:Y _:G) log:onNegativeSurface {
     _:X 
-        a :Policy .
+        a :PolicyTarget .
 
     () log:onDutySurface _:G .
     
@@ -47,7 +47,7 @@
 # IF Duty { action X } AND Duty { action Y } THEN Duty { action X,Y }
 (_:X _:G1 _:G2 _:G) log:onNegativeSurface {
     _:X
-        a :Policy .
+        a :PolicyTarget .
 
     () log:onDutySurface _:G1 .
     () log:onDutySurface _:G2 .

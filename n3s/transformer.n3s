@@ -3,7 +3,7 @@
 
 (_:Pol _:X _:Y) log:onNegativeSurface {
     _:Pol 
-        a :Policy ;
+        a :PolicyTarget ;
         :prohibition _:X .
     
     _:X :action _:Y .
@@ -17,7 +17,7 @@
 
 (_:Pol _:X _:Y) log:onNegativeSurface {
     _:Pol 
-        a :Policy ;
+        a :PolicyTarget ;
         :permission _:X .
     
     _:X :action _:Y .
@@ -31,7 +31,7 @@
 
 (_:Pol _:X _:Y) log:onNegativeSurface {
     _:Pol 
-        a :Policy ;
+        a :PolicyTarget ;
         :duty _:X .
     
     _:X :action _:Y .

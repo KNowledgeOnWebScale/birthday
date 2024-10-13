@@ -1,9 +1,0 @@
-@prefix : <http://example.org/ns#> .
-
-:PolicyA 
-    a :Policy ;
-    :prohibition [
-        :action :TalkLoudly 
-    ] , [
-        :action :EatLoudly
-    ] .

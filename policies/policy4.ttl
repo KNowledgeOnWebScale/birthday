@@ -1,9 +1,0 @@
-@prefix : <http://example.org/ns#> .
-
-:PolicyA 
-    a :Policy ;
-    :duty [
-        :action :WashDishes 
-    ] , [
-        :action :PutDishesInCupboard
-    ].

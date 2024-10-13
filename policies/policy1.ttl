@@ -1,8 +1,0 @@
-@prefix : <http://example.org/ns#> .
-@prefix log: <http://www.w3.org/2000/10/swap/log#> .
-
-:PolicyA 
-    a :Policy ;
-    :prohibition [
-        :action :TalkLoudly 
-    ].
