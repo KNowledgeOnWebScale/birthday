@@ -6,11 +6,11 @@
         a :Policy ;
         :prohibition _:X .
     
-    _:X :target _:Y .
+    _:X :action _:Y .
 
     () log:onNegativeSurface {
         () log:onProhibitionSurface {
-            _:Pol :target _:Y .
+            _:Pol :action _:Y .
         } .
     } .
 } .
@@ -20,11 +20,11 @@
         a :Policy ;
         :permission _:X .
     
-    _:X :target _:Y .
+    _:X :action _:Y .
 
     () log:onNegativeSurface {
         () log:onPermissionSurface {
-            _:Pol :target _:Y .
+            _:Pol :action _:Y .
         } .
     } .
 } .
@@ -34,11 +34,11 @@
         a :Policy ;
         :duty _:X .
     
-    _:X :target _:Y .
+    _:X :action _:Y .
 
     () log:onNegativeSurface {
         () log:onDutySurface {
-            _:Pol :target _:Y .
+            _:Pol :action _:Y .
         } .
     } .
 } .

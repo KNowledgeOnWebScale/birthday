@@ -11,7 +11,7 @@
 
     () log:onProhibitionSurface _:G .
 
-    _:G log:includes { _:Pol :target _:X } .
+    _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
         :You :have (:prohibition _:X) .
@@ -25,7 +25,7 @@
 
     () log:onPermissionSurface _:G .
 
-    _:G log:includes { _:Pol :target _:X } .
+    _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
         :You :have (:permission _:X) .
@@ -39,7 +39,7 @@
 
     () log:onDutySurface _:G .
 
-    _:G log:includes { _:Pol :target _:X } .
+    _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
         :You :have (:duty _:X) .
@@ -57,7 +57,7 @@
         () log:onNegativeSurface _:F .
     } .
 
-    _:F log:includes { _:Pol :target _:X } .
+    _:F log:includes { _:Pol :action _:X } .
 
     _:X log:localName _:Local  .
     _:X log:namespace _:NameSpace .
@@ -82,7 +82,7 @@
         () log:onNegativeSurface _:F .
     } .
 
-    _:F log:includes { _:Pol :target _:X } .
+    _:F log:includes { _:Pol :action _:X } .
 
     _:X log:localName _:Local  .
     _:X log:namespace _:NameSpace .
@@ -107,7 +107,7 @@
         () log:onNegativeSurface _:F .
     } .
 
-    _:F log:includes { _:Pol :target _:X } .
+    _:F log:includes { _:Pol :action _:X } .
 
     _:X log:localName _:Local  .
     _:X log:namespace _:NameSpace .
@@ -130,7 +130,7 @@
         () log:onProhibitionSurface _:G .
     } .
 
-    _:G log:includes { _:Pol :target _:X } .
+    _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
         :You :havenot (:prohibition _:X) .
@@ -146,7 +146,7 @@
         () log:onPermissionSurface _:G .
     } .
 
-    _:G log:includes { _:Pol :target _:X } .
+    _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
         :You :havenot (:permission _:X) .
@@ -162,7 +162,7 @@
         () log:onDutySurface _:G .
     } .
 
-    _:G log:includes { _:Pol :target _:X } .
+    _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
         :You :havenot (:duty _:X) .
@@ -182,7 +182,7 @@
         () log:onNegativeSurface _:F .
     } .
 
-    _:F log:includes { _:Pol :target _:X } .
+    _:F log:includes { _:Pol :action _:X } .
 
     _:X log:localName _:Local  .
     _:X log:namespace _:NameSpace .
@@ -209,7 +209,7 @@
         () log:onNegativeSurface _:F .
     } .
 
-    _:F log:includes { _:Pol :target _:X } .
+    _:F log:includes { _:Pol :action _:X } .
 
     _:X log:localName _:Local  .
     _:X log:namespace _:NameSpace .
@@ -236,7 +236,7 @@
         () log:onNegativeSurface _:F .
     } .
 
-    _:F log:includes { _:Pol :target _:X } .
+    _:F log:includes { _:Pol :action _:X } .
 
     _:X log:localName _:Local  .
     _:X log:namespace _:NameSpace .

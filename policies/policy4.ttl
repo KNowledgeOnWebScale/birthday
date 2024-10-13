@@ -3,7 +3,7 @@
 :PolicyA 
     a :Policy ;
     :duty [
-        :target :WashDishes 
+        :action :WashDishes 
     ] , [
-        :target :PutDishesInCupboard
+        :action :PutDishesInCupboard
     ].
