@@ -9,13 +9,13 @@ if [ "${WHAT}" == "" ]; then
 fi
 
 show() {
-   echo "# eye --nope --no-bnode-relabeling --quiet n3s/transformer.n3s n3s/compiler.n3s ${1} surn3sfaces/show.n3s"
-   eye --nope --no-bnode-relabeling --quiet n3s/transformer.n3s n3s/compiler.n3s ${1} n3s/show.n3s
+   echo "# eye --nope --no-bnode-relabeling --quiet n3s/compiler.n3s ${1} n3s/show.n3s"
+   eye --nope --no-bnode-relabeling --quiet n3s/compiler.n3s ${1} n3s/show.n3s
 }
 
 query () {
-   echo "# eye --nope --no-bnode-relabeling --quiet n3s/transformer.n3s n3s/compiler.n3s ${1} n3s/query.n3s"
-   eye --nope --no-bnode-relabeling --quiet n3s/transformer.n3s n3s/compiler.n3s ${1} n3s/query.n3s
+   echo "# eye --nope --no-bnode-relabeling --quiet n3s/compiler.n3s ${1} n3s/query.n3s"
+   eye --nope --no-bnode-relabeling --quiet n3s/compiler.n3s ${1} n3s/query.n3s
 }
 
 if [ "${WHAT}" == "all" ]; then
