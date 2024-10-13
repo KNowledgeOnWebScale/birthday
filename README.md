@@ -25,32 +25,25 @@ And from [5] & [6] should follow:
 
 The challenge is here to model and implement [5], [6] and [7]
 
+## Policy
+
+A policy is on a target (a URL) and defined what actions are allowed on a target. E.g. the following policy says that in Room101 it is allowed to talk loudy.
+ 
+```
+@prefix : <http://example.org/ns#> .
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+
+:Room101 
+    a :PolicyTarget .
+
+() log:onPermissionSurface {
+    :Room101 :action :TalkLoudly 
+} .
+```
+
 ## Demo
 
-**Warning** these are only preliminary results
-
-Run all tests:
-
-```
-./test.sh all
-```
-
-Test if we can TalkLoudly for `policy1.ttl`:
-
-```
-./bin/test.sh policies/policy1.n3s
-
-# produces
-
-:You :have (:prohibition :TalkLoudly).
-:You :have (:permission :NotTalkLoudly).
-:You :have (:duty :NotTalkLoudly).
-:You :havenot (:prohibition :NotTalkLoudly).
-:You :havenot (:permission :TalkLoudly).
-```
-
-Show all inferences for `policy1.n3s`:
-
-```
-./bin/test.sh policies/policy1.ttl show
-```
+- `./bin/test.sh all` - query all policies and display what is allowed
+- `./bin/test.sh policies/policy1.n3s` - query just one policy 
+- `./bin/test.sh policies/policy1.n3s show` - show all inferred deontic surfaces for one policy
+- `./bin/combine.sh policy*` - combine policies to check for inconsistencies

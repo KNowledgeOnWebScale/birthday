@@ -1,11 +1,10 @@
 @prefix : <http://example.org/ns#> .
 @prefix log: <http://www.w3.org/2000/10/swap/log#> .
 
-:MyAgePolicy2
+:age
     a :PolicyTarget .
 
 () log:onDutySurface {
-    :MyAgePolicy2
-        :target :age ;
-        :action :Display .
+    :age 
+        :action :Anonimize .
 } .

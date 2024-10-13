@@ -1,9 +1,10 @@
 @prefix : <http://example.org/ns#> .
 @prefix log: <http://www.w3.org/2000/10/swap/log#> .
 
-:Room101 
+:age
     a :PolicyTarget .
 
-() log:onPermissionSurface {
-    :Room101 :action :TalkLoudly 
+() log:onProhibitionSurface {
+    :age
+        :action :Anonimize .
 } .

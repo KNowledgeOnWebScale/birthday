@@ -1,13 +1,13 @@
 @prefix : <http://example.org/ns#> .
 @prefix log: <http://www.w3.org/2000/10/swap/log#> .
 
-:PolicyTargetA 
+:Room101 
     a :PolicyTarget ;
 
 () log:onDutySurface {
-    :PolicyTargetA :action :WashDishes .
+    :Room101 :action :WashDishes .
 } .
 
 () log:onDutySurface {
-    :PolicyTargetA :action :PutDishesInCupboard .
+    :Room101 :action :PutDishesInCupboard .
 } .
