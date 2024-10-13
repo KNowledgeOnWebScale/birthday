@@ -6,24 +6,27 @@
 @prefix string: <http://www.w3.org/2000/10/swap/string#>.
 @prefix r: <http://www.w3.org/2000/10/swap/reason#>.
 @prefix var: <http://www.w3.org/2000/10/swap/var#>.
-@prefix skolem: <https://eyereasoner.github.io/.well-known/genid/ab28b339-07c4-4b41-b67e-645104e3b1d4#>.
+@prefix skolem: <https://eyereasoner.github.io/.well-known/genid/f0cbebfe-1ae3-4bce-9575-3e929b1e1bad#>.
 @prefix n3: <http://www.w3.org/2004/06/rei#>.
 
-:You :have (:prohibition :Anonimize).
+:You :have (:prohibition :Encrypt).
 :You :have (:permission :Anonimize).
+:You :have (:permission :Encrypt).
 :You :have (:duty :Anonimize).
-:You :have (:permission :NotAnonimize).
-:You :have (:duty :NotAnonimize).
+:You :have (:duty :Encrypt).
+:You :have (:permission :NotEncrypt).
+:You :have (:duty :NotEncrypt).
 :You :havenot (:prohibition :Anonimize).
-:You :havenot (:prohibition :NotAnonimize).
+:You :havenot (:prohibition :Encrypt).
+:You :havenot (:prohibition :NotEncrypt).
 # inference fuse
 {
     () log:onProhibitionSurface {
-        :age :action :Anonimize.
+        :age :action :Encrypt.
     }.
     () log:onNegativeSurface {
         () log:onProhibitionSurface {
-            :age :action :Anonimize.
+            :age :action :Encrypt.
         }.
     }.
 } => false.

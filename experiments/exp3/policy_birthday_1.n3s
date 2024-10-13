@@ -1,0 +1,15 @@
+@prefix : <http://example.org/ns#> .
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+
+:age
+    a :PolicyTarget .
+
+() log:onDutySurface {
+    :age 
+        :action :Anonimize .
+} .
+
+() log:onDutySurface {
+    :age 
+        :action :Encrypt .
+} .
