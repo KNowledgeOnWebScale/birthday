@@ -1,0 +1,17 @@
+@prefix : <http://example.org/ns#> .
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+
+:MyAgePolicy1
+    a :Policy .
+
+() log:onPermissionSurface {
+    :MyAgePolicy1 
+        :target :age ;
+        :action :Use .
+} .
+
+() log:onProhibitionSurface {
+    :MyAgePolicy1
+        :target :age ;
+        :action :Display .
+} .
