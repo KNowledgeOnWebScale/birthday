@@ -1,0 +1,9 @@
+@prefix : <urn:example:> .
+
+:PolicyA 
+    a :Policy ;
+    :prohibition [
+        :action :TalkLoudly 
+    ] , [
+        :action :EatLoudly
+    ] .

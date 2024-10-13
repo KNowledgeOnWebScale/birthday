@@ -1,0 +1,9 @@
+@prefix : <urn:example:> .
+
+:PolicyA 
+    a :Policy ;
+    :duty [
+        :action :WashDishes 
+    ] , [
+        :action :PutDishesInCupboard
+    ].

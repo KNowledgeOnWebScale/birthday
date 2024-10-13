@@ -1,0 +1,76 @@
+@prefix : <urn:example:> .
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+
+# show a policy
+(_:S) log:onNegativeSurface {
+    _:S a :Policy .
+    () log:onNegativeAnswerSurface {
+        _:S a :Policy .
+    } .
+} .
+
+# show prohibition 
+(_:G) log:onNegativeSurface {
+    () log:onProhibitionSurface _:G .
+
+    () log:onNegativeAnswerSurface {
+        () log:onProhibitionSurface _:G .
+    } .
+} .
+
+# show permission 
+(_:G) log:onNegativeSurface {
+    () log:onPermissionSurface _:G .
+
+    () log:onNegativeAnswerSurface {
+        () log:onPermissionSurface _:G .
+    } .
+} .
+
+# show duty 
+(_:G) log:onNegativeSurface {
+    () log:onDutySurface _:G .
+
+    () log:onNegativeAnswerSurface {
+        () log:onDutySurface _:G .
+    } .
+} .
+
+# Show negated prohibition 
+(_:G) log:onNegativeSurface {
+    () log:onNegativeSurface {
+        () log:onProhibitionSurface _:G .
+    } .
+
+    () log:onNegativeAnswerSurface {
+        () log:onNegativeSurface {
+            () log:onProhibitionSurface _:G .
+        } .
+    } .
+} .
+
+# Show negated permission 
+(_:G) log:onNegativeSurface {
+    () log:onNegativeSurface {
+        () log:onPermissionSurface _:G .
+    } .
+
+    () log:onNegativeAnswerSurface {
+        () log:onNegativeSurface {
+            () log:onPermissionSurface _:G .
+        } .
+    } .
+} .
+
+# Show negated duty 
+(_:G) log:onNegativeSurface {
+    () log:onNegativeSurface {
+        () log:onDutySurface _:G .
+    } .
+
+    () log:onNegativeAnswerSurface {
+        () log:onNegativeSurface {
+            () log:onDutySurface _:G .
+        } .
+    } .
+} .

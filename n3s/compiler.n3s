@@ -1,0 +1,77 @@
+@prefix : <urn:example:> .
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+@prefix graph: <http://www.w3.org/2000/10/swap/graph#> .
+@prefix list: <http://www.w3.org/2000/10/swap/list#> .
+
+# Prohibition { action X } = Duty { NOT (action X) }
+(_:X _:Y _:G) log:onNegativeSurface {
+    _:X 
+        a :Policy .
+
+    () log:onProhibitionSurface _:G .
+
+    (_:New) log:onNegativeSurface {
+        () log:onDutySurface {
+            () log:onNegativeSurface _:G .
+        } .
+    } .
+} .
+
+# Permission { action X } = NOT { Prohibition action X }
+(_:X _:Y _:G) log:onNegativeSurface {
+    _:X 
+        a :Policy .
+
+    () log:onPermissionSurface _:G .
+
+    (_:New) log:onNegativeSurface {
+        _:X a :Policy . # Due to a bug in eye this line is needed
+        () log:onNegativeSurface {
+            () log:onProhibitionSurface _:G .
+        } .
+    } .
+} .
+
+# IF Duty { action X } THEN { Permission action X }
+(_:X _:Y _:G) log:onNegativeSurface {
+    _:X 
+        a :Policy .
+
+    () log:onDutySurface _:G .
+    
+    () log:onNegativeSurface {
+        () log:onPermissionSurface _:G .
+    } .
+} .
+
+# IF Duty { action X } AND Duty { action Y } THEN Duty { action X,Y }
+(_:X _:G1 _:G2 _:G) log:onNegativeSurface {
+    _:X
+        a :Policy .
+
+    () log:onDutySurface _:G1 .
+    () log:onDutySurface _:G2 .
+
+    (_:G1 _:G2) graph:union _:G .
+
+    () log:onNegativeSurface {
+        () log:onDutySurface _:G .
+    } .
+}.
+
+# Now try to get rid of double negations in specialized surfaces
+## ..there is where deontic logic is different than FOL
+## ..we use a straightforward approach for simple not too deeply
+## ..nested cases for now
+(_:P _:G _:F) log:onNegativeSurface {
+    () _:P _:G .
+    _:P list:in (log:onProhibitionSurface log:onPermissionSurface log:onDutySurface) .
+    _:G log:equalTo {
+        () log:onNegativeSurface {
+            () log:onNegativeSurface _:F .
+        } .
+    } .
+    () log:onNegativeSurface {
+        () _:P _:F .
+    } .
+} .

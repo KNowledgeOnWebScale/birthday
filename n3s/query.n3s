@@ -1,0 +1,266 @@
+@prefix : <urn:example:> .
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+@prefix list: <http://www.w3.org/2000/10/swap/list#> .
+@prefix graph: <http://www.w3.org/2000/10/swap/graph#> .
+@prefix string: <http://www.w3.org/2000/10/swap/string#> .
+
+# Test prohibition X
+(_:Pol _:G _:X) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onProhibitionSurface _:G .
+
+    _:G log:includes { _:Pol :action _:X } .
+
+    () log:onNegativeSurface {
+        :You :have (:prohibition _:X) .
+    } .
+} .
+
+# Test permission X 
+(_:Pol _:G _:X) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onPermissionSurface _:G .
+
+    _:G log:includes { _:Pol :action _:X } .
+
+    () log:onNegativeSurface {
+        :You :have (:permission _:X) .
+    } .
+} .
+
+# Test duty X 
+(_:Pol _:G _:X) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onDutySurface _:G .
+
+    _:G log:includes { _:Pol :action _:X } .
+
+    () log:onNegativeSurface {
+        :You :have (:duty _:X) .
+    } .
+} .
+
+# Test prohibition NOT X
+(_:Pol _:G _:F _:X _:Local _:NameSpace _:New _:URI) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onProhibitionSurface _:G .
+
+    _:G log:includes { 
+        () log:onNegativeSurface _:F .
+    } .
+
+    _:F log:includes { _:Pol :action _:X } .
+
+    _:X log:localName _:Local  .
+    _:X log:namespace _:NameSpace .
+
+    ( (_:NameSpace "Not" _:Local) "" ) string:join _:New .
+
+    _:URI log:uri _:New .
+
+    () log:onNegativeSurface {
+        :You :have (:prohibition _:URI) .
+    } .
+} .
+
+# Test permission NOT X
+(_:Pol _:G _:F _:X _:Local _:NameSpace _:New _:URI) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onPermissionSurface _:G .
+
+    _:G log:includes { 
+        () log:onNegativeSurface _:F .
+    } .
+
+    _:F log:includes { _:Pol :action _:X } .
+
+    _:X log:localName _:Local  .
+    _:X log:namespace _:NameSpace .
+
+    ( (_:NameSpace "Not" _:Local) "" ) string:join _:New .
+
+    _:URI log:uri _:New .
+
+    () log:onNegativeSurface {
+        :You :have (:permission _:URI) .
+    } .
+} .
+
+# Test duty NOT X
+(_:Pol _:G _:F _:X _:Local _:NameSpace _:New _:URI) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onDutySurface _:G .
+
+    _:G log:includes { 
+        () log:onNegativeSurface _:F .
+    } .
+
+    _:F log:includes { _:Pol :action _:X } .
+
+    _:X log:localName _:Local  .
+    _:X log:namespace _:NameSpace .
+
+    ( (_:NameSpace "Not" _:Local) "" ) string:join _:New .
+
+    _:URI log:uri _:New .
+
+    () log:onNegativeSurface {
+        :You :have (:duty _:URI) .
+    } .
+} .
+
+# Test NOT prohibition X
+(_:Pol _:G _:X) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onNegativeSurface {
+        () log:onProhibitionSurface _:G .
+    } .
+
+    _:G log:includes { _:Pol :action _:X } .
+
+    () log:onNegativeSurface {
+        :You :havenot (:prohibition _:X) .
+    } .
+} .
+
+# Test NOT permission X
+(_:Pol _:G _:X) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onNegativeSurface {
+        () log:onPermissionSurface _:G .
+    } .
+
+    _:G log:includes { _:Pol :action _:X } .
+
+    () log:onNegativeSurface {
+        :You :havenot (:permission _:X) .
+    } .
+} .
+
+# Test NOT duty X
+(_:Pol _:G _:X) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onNegativeSurface {
+        () log:onDutySurface _:G .
+    } .
+
+    _:G log:includes { _:Pol :action _:X } .
+
+    () log:onNegativeSurface {
+        :You :havenot (:duty _:X) .
+    } .
+} .
+
+# Test NOT prohibition NOT x 
+(_:Pol _:G _:F _:X _:Local _:NameSpace _:New _:URI) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onNegativeSurface {
+        () log:onProhibitionSurface _:G .
+    } .
+
+    _:G log:includes { 
+        () log:onNegativeSurface _:F .
+    } .
+
+    _:F log:includes { _:Pol :action _:X } .
+
+    _:X log:localName _:Local  .
+    _:X log:namespace _:NameSpace .
+
+    ( (_:NameSpace "Not" _:Local) "" ) string:join _:New .
+
+    _:URI log:uri _:New .
+
+    () log:onNegativeSurface {
+        :You :havenot (:prohibition _:URI) .
+    } .
+} .
+
+# Test NOT permission NOT x 
+(_:Pol _:G _:F _:X _:Local _:NameSpace _:New _:URI) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onNegativeSurface {
+        () log:onPermissionSurface _:G .
+    } .
+
+    _:G log:includes { 
+        () log:onNegativeSurface _:F .
+    } .
+
+    _:F log:includes { _:Pol :action _:X } .
+
+    _:X log:localName _:Local  .
+    _:X log:namespace _:NameSpace .
+
+    ( (_:NameSpace "Not" _:Local) "" ) string:join _:New .
+
+    _:URI log:uri _:New .
+
+    () log:onNegativeSurface {
+        :You :havenot (:permission _:URI) .
+    } .
+} .
+
+# Test NOT duty NOT x 
+(_:Pol _:G _:F _:X _:Local _:NameSpace _:New _:URI) log:onNegativeSurface {
+    _:Pol
+        a :Policy   .
+
+    () log:onNegativeSurface {
+        () log:onDutySurface _:G .
+    } .
+
+    _:G log:includes { 
+        () log:onNegativeSurface _:F .
+    } .
+
+    _:F log:includes { _:Pol :action _:X } .
+
+    _:X log:localName _:Local  .
+    _:X log:namespace _:NameSpace .
+
+    ( (_:NameSpace "Not" _:Local) "" ) string:join _:New .
+
+    _:URI log:uri _:New .
+
+    () log:onNegativeSurface {
+        :You :havenot (:duty _:URI) .
+    } .
+} .
+
+# General output
+(_:What) log:onNegativeSurface {
+    :You :have _:What .
+    () log:onNegativeAnswerSurface {
+        :You :have _:What .
+    } .
+} .
+
+(_:What) log:onNegativeSurface {
+    :You :havenot _:What .
+    () log:onNegativeAnswerSurface {
+        :You :havenot _:What .
+    } .
+} .
