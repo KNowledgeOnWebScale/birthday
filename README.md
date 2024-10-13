@@ -13,7 +13,7 @@ Minimal deontic logic : "Sartor G (2006) Fundamental legal concepts: a formal an
 
 But, from [1] should follow:
 
-[5] **Prohibition NOT action(X) = **Duty** action(X) .
+[5] **Prohibition** NOT action(X) = **Duty** action(X) .
 
 And, from [2] should follow:
 
