@@ -6,7 +6,7 @@
 
 () log:onDutySurface {
     :age 
-        :action :Anonimize .
+        :action :Anonymize .
 } .
 
 () log:onDutySurface {
