@@ -5,5 +5,5 @@
     a :PolicyTarget .
 
 () log:onPermissionSurface {
-    :birthdate :action :Use.
+    :birthdate :action :AgeVerification.
 }.
