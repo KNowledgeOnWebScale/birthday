@@ -47,3 +47,4 @@ A policy is on a target (a URL) and defined what actions are allowed on a target
 - `./bin/test.sh policies/policy1.n3s` - query just one policy 
 - `./bin/test.sh policies/policy1.n3s show` - show all inferred deontic surfaces for one policy
 - `./bin/combine.sh policy*` - combine policies to check for inconsistencies
+- `./bin/combine.sh -s policy*` - combine policies to check for inconsistencies (show generated surfaces)
