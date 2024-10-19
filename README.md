@@ -1,6 +1,6 @@
 # Birthday
 
-A RDF Surfaces implementation trying to implement deontic rules.
+A RDF Surfaces implementation trying to implement the birthday app with deontic rules.
 
 ## Deontic rules
 
@@ -23,7 +23,15 @@ And from [5] & [6] should follow:
 
 [7] **Prohibition** action(X) = NOT (**Permission** action(X)) = **Duty** NOT( action(X) )
 
-The challenge is here to model and implement [5], [6] and [7]
+The challenge is here to model and implement [5], [6] and [7].
+
+In this project we also assume :
+
+[8] **Duty**( action(X) & NOT action(X)) is false
+
+[9] **Prohibition**( action(X) & NOT action(X)) is false
+
+But, do not include such a rule for Permissions. One could have a permission to call and not call your mother. But, not a duty to call and not call your mother.
 
 ## Policy
 
