@@ -4,8 +4,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
 # X equivalentTarget Y
-# ..IF X a TargetPolicy then Y a TargetPolicy
-# ..IF <Deontic> action(X) then <Deontic> action(Y)
+# .. Y equivalentTarget X
 (_:A _:B _:X) log:onNegativeSurface {
     _:A :equivalentTarget _:B .
     _:A a _:X .
@@ -14,17 +13,46 @@
     } . 
 } .
 
-(_:A _:B _:P _:X) log:onNegativeSurface {
+# X equivalentTarget Y
+# ..IF X a TargetPolicy then Y a TargetPolicy
+# ..IF <Deontic> action(X) then <Deontic> action(Y)
+(_:A _:B _:X) log:onNegativeSurface {
     _:A :equivalentTarget _:B .
 
-    () _:P {
+    () log:onProhibitionSurface {
         _:A :action _:X .
     }.
 
-    _:P list:in (log:onProhibitionSurface log:onPermissionSurface log:onDutySurface) .
+    () log:onNegativeSurface {
+        () log:onProhibitionSurface {
+            _:B :action _:X .
+        }.
+    } . 
+} .
+
+(_:A _:B _:X) log:onNegativeSurface {
+    _:A :equivalentTarget _:B .
+
+    () log:onDutySurface {
+        _:A :action _:X .
+    }.
 
     () log:onNegativeSurface {
-        () _:P {
+        () log:onDutySurface {
+            _:B :action _:X .
+        }.
+    } . 
+} .
+
+(_:A _:B _:X) log:onNegativeSurface {
+    _:A :equivalentTarget _:B .
+
+    () log:onPermissionSurface {
+        _:A :action _:X .
+    }.
+
+    () log:onNegativeSurface {
+        () log:onPermissionSurface {
             _:B :action _:X .
         }.
     } . 
