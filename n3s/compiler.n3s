@@ -66,7 +66,7 @@
 # ..case for a Permission surface (that may not hold in any
 # ..possible world).
 # 
-(_:G _:H _:L _:S) log:onNegativeSurface {
+(_:G _:H _:L _:Sat _:S) log:onNegativeSurface {
     () log:onProhibitionSurface _:G .
 
     _:G graph:length _:L .
