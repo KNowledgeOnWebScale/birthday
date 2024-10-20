@@ -1,6 +1,7 @@
 @prefix : <http://example.org/ns#> .
 @prefix log: <http://www.w3.org/2000/10/swap/log#> .
 @prefix list: <http://www.w3.org/2000/10/swap/list#> .
+@prefix graph: <http://www.w3.org/2000/10/swap/graph#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
 # X equivalentTarget Y
@@ -16,44 +17,155 @@
 # X equivalentTarget Y
 # ..IF X a TargetPolicy then Y a TargetPolicy
 # ..IF <Deontic> action(X) then <Deontic> action(Y)
-(_:A _:B _:X) log:onNegativeSurface {
+(_:A _:B _:X _:G1 _:G2 _:G3 _:G4 _:G5 _:New) log:onNegativeSurface {
     _:A :equivalentTarget _:B .
 
-    () log:onProhibitionSurface {
-        _:A :action _:X .
-    }.
+    () log:onProhibitionSurface _:G1 .
+
+    _:G1 log:includes { _:A :action _:X } .
+    _:G1 graph:list _:G2 .
+    
+    ( _:G2 { _:A :action _:X } ) list:remove _:G3 .
+    ( _:G3 ( { _:B :action _:X })) list:append _:G4 .
+
+    _:G4 list:unique _:G5 .
+
+    _:New graph:list _:G5 .
 
     () log:onNegativeSurface {
-        () log:onProhibitionSurface {
-            _:B :action _:X .
-        }.
+        () log:onProhibitionSurface _:New .
     } . 
 } .
 
-(_:A _:B _:X) log:onNegativeSurface {
+(_:A _:B _:X _:G1 _:G2 _:G3 _:G4 _:G5 _:New) log:onNegativeSurface {
     _:A :equivalentTarget _:B .
 
-    () log:onDutySurface {
-        _:A :action _:X .
-    }.
+    () log:onDutySurface _:G1 .
+
+    _:G1 log:includes { _:A :action _:X } .
+    _:G1 graph:list _:G2 .
+
+    ( _:G2 { _:A :action _:X } ) list:remove _:G3 .
+    ( _:G3 ( { _:B :action _:X })) list:append _:G4 .
+
+    _:G4 list:unique _:G5 .
+
+    _:New graph:list _:G4 .
 
     () log:onNegativeSurface {
-        () log:onDutySurface {
-            _:B :action _:X .
-        }.
+        () log:onDutySurface _:New .
     } . 
 } .
 
-(_:A _:B _:X) log:onNegativeSurface {
+(_:A _:B _:X _:G1 _:G2 _:G3 _:G4 _:G5 _:New) log:onNegativeSurface {
     _:A :equivalentTarget _:B .
 
-    () log:onPermissionSurface {
-        _:A :action _:X .
-    }.
+    () log:onPermissionSurface _:G1 .
+    
+    _:G1 log:includes { _:A :action _:X } .
+    _:G1 graph:list _:G2 .
+
+    ( _:G2 { _:A :action _:X } ) list:remove _:G3 .
+    ( _:G3 ( { _:B :action _:X })) list:append _:G4 .
+
+    _:G4 list:unique _:G5 .
+
+    _:New graph:list _:G4 .
 
     () log:onNegativeSurface {
-        () log:onPermissionSurface {
-            _:B :action _:X .
-        }.
+        () log:onPermissionSurface _:New .
+    } . 
+} .
+
+# X equivalentTarget Y
+# ..IF X a TargetPolicy then Y a TargetPolicy
+# ..IF <Deontic> NOT(action(X)) then <Deontic> NOT(action(Y))
+(_:A _:B _:X _:G1 _:G2 _:G3 _:G4 _:G5 _:H1 _:H2 _:H3 _:H4 _:NI _:NO) log:onNegativeSurface {
+    _:A :equivalentTarget _:B .
+
+    () log:onProhibitionSurface _:G1 .
+
+    _:G1 log:includes { () log:onNegativeSurface _:G2 } .
+
+    _:G2 log:includes { _:A :action _:X } .
+
+    _:G2 graph:list _:G3 .
+
+    ( _:G3 { _:A :action _:X } ) list:remove _:G4 .
+    ( _:G4 ( { _:B :action _:X })) list:append _:G5 .
+
+    _:NI graph:list _:G5 .
+
+    _:G1 graph:list _:H1 .
+
+    ( _:H1 { () log:onNegativeSurface _:G2 } ) list:remove _:H2 .
+    ( _:H2 ( { () log:onNegativeSurface _:NI } )) list:append _:H3 .
+
+    _:H3 list:unique _:H4 .
+
+    _:NO graph:list _:H4 .
+
+    () log:onNegativeSurface {
+        () log:onProhibitionSurface _:NO .
+    } . 
+} .
+
+(_:A _:B _:X _:G1 _:G2 _:G3 _:G4 _:G5 _:H1 _:H2 _:H3 _:H4 _:NI _:NO) log:onNegativeSurface {
+    _:A :equivalentTarget _:B .
+
+    () log:onDutySurface _:G1 .
+
+    _:G1 log:includes { () log:onNegativeSurface _:G2 } .
+
+    _:G2 log:includes { _:A :action _:X } .
+
+    _:G2 graph:list _:G3 .
+
+    ( _:G3 { _:A :action _:X } ) list:remove _:G4 .
+    ( _:G4 ( { _:B :action _:X })) list:append _:G5 .
+
+    _:NI graph:list _:G5 .
+
+    _:G1 graph:list _:H1 .
+
+    ( _:H1 { () log:onNegativeSurface _:G2 } ) list:remove _:H2 .
+    ( _:H2 ( { () log:onNegativeSurface _:NI } )) list:append _:H3 .
+
+    _:H3 list:unique _:H4 .
+
+    _:NO graph:list _:H4 .
+
+    () log:onNegativeSurface {
+        () log:onDutySurface _:NO .
+    } . 
+} .
+
+(_:A _:B _:X _:G1 _:G2 _:G3 _:G4 _:G5 _:H1 _:H2 _:H3 _:H4 _:NI _:NO) log:onNegativeSurface {
+    _:A :equivalentTarget _:B .
+
+    () log:onPermissionSurface _:G1 .
+
+    _:G1 log:includes { () log:onNegativeSurface _:G2 } .
+
+    _:G2 log:includes { _:A :action _:X } .
+
+    _:G2 graph:list _:G3 .
+
+    ( _:G3 { _:A :action _:X } ) list:remove _:G4 .
+    ( _:G4 ( { _:B :action _:X })) list:append _:G5 .
+
+    _:NI graph:list _:G5 .
+
+    _:G1 graph:list _:H1 .
+
+    ( _:H1 { () log:onNegativeSurface _:G2 } ) list:remove _:H2 .
+    ( _:H2 ( { () log:onNegativeSurface _:NI } )) list:append _:H3 .
+
+    _:H3 list:unique _:H4 .
+
+    _:NO graph:list _:H4 .
+
+    () log:onNegativeSurface {
+        () log:onPermissionSurface _:NO .
     } . 
 } .
