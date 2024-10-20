@@ -66,29 +66,34 @@
 # ..case for a Permission surface (that may not hold in any
 # ..possible world).
 # 
-(_:G _:H _:L) log:onNegativeSurface {
+(_:G _:H _:L _:S) log:onNegativeSurface {
+    () log:onProhibitionSurface _:G .
+
+    _:G graph:length _:L .
+    _:L log:notEqualTo 0 .
+
+    # Check if the surface contains a contradiction
+    (
+        { _:G log:conclusion _:H }
+        { _:Sat log:equalTo true  } 
+        { _:Sat log:equalTo false  }
+    ) log:ifThenElseIn _:S.
+
+    _:Sat log:equalTo false .
+} .
+
+(_:G _:H _:L _:Sat _:S) log:onNegativeSurface {
     () log:onDutySurface _:G .
 
     _:G graph:length _:L .
     _:L log:notEqualTo 0 .
 
     # Check if the surface contains a contradiction
-    _:G log:conclusion _:H .
+    (
+        { _:G log:conclusion _:H }
+        { _:Sat log:equalTo true  } 
+        { _:Sat log:equalTo false  }
+    ) log:ifThenElseIn _:S.
 
-    _:H graph:length 0 .
-} .
-
-(_:G _:H _:L) log:onNegativeSurface {
-    () log:onProhibitionSurface _:G .
-
-    _:G graph:length _:L .
-    _:L log:notEqualTo 0 .
-
-[] log:trace "%%%%%%%%%%%%%%%%%%%%%%%%" .
-
-    # Check if the surface contains a contradiction
-    _:G log:conclusion _:H .
-
-[] log:trace _:H .
-    _:H graph:length 0 .
+    _:Sat log:equalTo false .
 } .
