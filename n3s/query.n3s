@@ -14,7 +14,7 @@
     _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
-        :You :have (:prohibition _:X :on _:Pol) .
+        :You :have (:with _:Pol :prohibition _:X) .
     } .
 } .
 
@@ -28,7 +28,7 @@
     _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
-        :You :have (:permission _:X :on _:Pol) .
+        :You :have (:with _:Pol :permission _:X) .
     } .
 } .
 
@@ -42,7 +42,7 @@
     _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
-        :You :have (:duty _:X :on _:Pol) .
+        :You :have (:with _:Pol :duty _:X) .
     } .
 } .
 
@@ -67,7 +67,7 @@
     _:URI log:uri _:New .
 
     () log:onNegativeSurface {
-        :You :have (:prohibition _:URI :on _:Pol) .
+        :You :have (:with _:Pol :prohibition _:URI) .
     } .
 } .
 
@@ -92,7 +92,7 @@
     _:URI log:uri _:New .
 
     () log:onNegativeSurface {
-        :You :have (:permission _:URI :on _:Pol) .
+        :You :have (:with _:Pol :permission _:URI) .
     } .
 } .
 
@@ -117,7 +117,7 @@
     _:URI log:uri _:New .
 
     () log:onNegativeSurface {
-        :You :have (:duty _:URI :on _:Pol) .
+        :You :have (:with _:Pol :duty _:URI) .
     } .
 } .
 
@@ -133,7 +133,7 @@
     _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
-        :You :havenot (:prohibition _:X :on _:Pol) .
+        :You :havenot (:with _:Pol :prohibition _:X) .
     } .
 } .
 
@@ -149,7 +149,7 @@
     _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
-        :You :havenot (:permission _:X :on _:Pol) .
+        :You :havenot (:with _:Pol :permission _:X) .
     } .
 } .
 
@@ -165,7 +165,7 @@
     _:G log:includes { _:Pol :action _:X } .
 
     () log:onNegativeSurface {
-        :You :havenot (:duty _:X :on _:Pol) .
+        :You :havenot (:with _:Pol :duty _:X) .
     } .
 } .
 
@@ -192,7 +192,7 @@
     _:URI log:uri _:New .
 
     () log:onNegativeSurface {
-        :You :havenot (:prohibition _:URI :on _:Pol) .
+        :You :havenot (:with _:Pol :prohibition _:URI) .
     } .
 } .
 
@@ -219,7 +219,7 @@
     _:URI log:uri _:New .
 
     () log:onNegativeSurface {
-        :You :havenot (:permission _:URI :on _:Pol) .
+        :You :havenot (:with _:Pol :permission _:URI) .
     } .
 } .
 
@@ -246,7 +246,7 @@
     _:URI log:uri _:New .
 
     () log:onNegativeSurface {
-        :You :havenot (:duty _:URI :on _:Pol) .
+        :You :havenot (:with _:Pol :duty _:URI) .
     } .
 } .
 
