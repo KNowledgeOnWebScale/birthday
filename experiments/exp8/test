@@ -1,0 +1,9 @@
+#!/bin/bash
+
+./bin/combine.sh experiments/exp8/*.n3s > experiments/exp8/output 2>&1
+
+if [ $? -ne 0 ]; then
+    echo "$0 FAILED"
+else    
+    echo "$0 OK"
+fi
