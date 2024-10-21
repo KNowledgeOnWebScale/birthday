@@ -1,0 +1,14 @@
+# eye --nope --no-bnode-relabeling --quiet n3s/compiler.n3s policies/policy5.n3s n3s/query.n3s
+@prefix : <http://example.org/ns#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+
+:You :have (:with :Room101 :prohibition :TalkLoudly).
+:You :have (:with :Room101 :prohibition :EatLoudly).
+:You :have (:with :Room101 :permission :NotTalkLoudly).
+:You :have (:with :Room101 :permission :NotEatLoudly).
+:You :have (:with :Room101 :duty :NotTalkLoudly).
+:You :have (:with :Room101 :duty :NotEatLoudly).
+:You :havenot (:with :Room101 :prohibition :NotTalkLoudly).
+:You :havenot (:with :Room101 :prohibition :NotEatLoudly).
+:You :havenot (:with :Room101 :permission :TalkLoudly).
+:You :havenot (:with :Room101 :permission :EatLoudly).

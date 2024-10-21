@@ -1,0 +1,9 @@
+# eye --nope --no-bnode-relabeling --quiet n3s/compiler.n3s policies/policy4.n3s n3s/query.n3s
+@prefix : <http://example.org/ns#>.
+
+:You :have (:with :Room101 :permission :WashDishes).
+:You :have (:with :Room101 :permission :PutDishesInCupboard).
+:You :have (:with :Room101 :duty :WashDishes).
+:You :have (:with :Room101 :duty :PutDishesInCupboard).
+:You :havenot (:with :Room101 :prohibition :WashDishes).
+:You :havenot (:with :Room101 :prohibition :PutDishesInCupboard).

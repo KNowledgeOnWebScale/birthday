@@ -1,0 +1,5 @@
+# eye --nope --no-bnode-relabeling --quiet n3s/compiler.n3s policies/policy2.n3s n3s/query.n3s
+@prefix : <http://example.org/ns#>.
+
+:You :have (:with :Room101 :permission :UseBathRoom).
+:You :havenot (:with :Room101 :prohibition :UseBathRoom).

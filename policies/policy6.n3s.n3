@@ -1,0 +1,6 @@
+# eye --nope --no-bnode-relabeling --quiet n3s/compiler.n3s policies/policy6.n3s n3s/query.n3s
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix : <http://example.org/ns#>.
+
+:You :have (:with :Room101 :prohibition :NotTalkLoudly).
+:You :havenot (:with :Room101 :permission :NotTalkLoudly).
