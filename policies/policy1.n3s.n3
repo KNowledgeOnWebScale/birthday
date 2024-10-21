@@ -3,3 +3,4 @@
 
 :You :have (:with :Room101 :permission :TalkLoudly).
 :You :havenot (:with :Room101 :prohibition :TalkLoudly).
+:You :havenot (:with :Room101 :duty :NotTalkLoudly).

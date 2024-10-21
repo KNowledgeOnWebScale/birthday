@@ -4,3 +4,4 @@
 :You :have (:with :Room101 :permission :WashDishes).
 :You :have (:with :Room101 :duty :WashDishes).
 :You :havenot (:with :Room101 :prohibition :WashDishes).
+:You :havenot (:with :Room101 :duty :NotWashDishes).

@@ -7,3 +7,5 @@
 :You :have (:with :Room101 :duty :PutDishesInCupboard).
 :You :havenot (:with :Room101 :prohibition :WashDishes).
 :You :havenot (:with :Room101 :prohibition :PutDishesInCupboard).
+:You :havenot (:with :Room101 :duty :NotWashDishes).
+:You :havenot (:with :Room101 :duty :NotPutDishesInCupboard).

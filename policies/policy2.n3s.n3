@@ -3,3 +3,4 @@
 
 :You :have (:with :Room101 :permission :UseBathRoom).
 :You :havenot (:with :Room101 :prohibition :UseBathRoom).
+:You :havenot (:with :Room101 :duty :NotUseBathRoom).

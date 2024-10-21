@@ -10,9 +10,26 @@
 
     () log:onProhibitionSurface _:G .
 
-    (_:New) log:onNegativeSurface {
+    () log:onNegativeSurface {
         () log:onDutySurface {
             () log:onNegativeSurface _:G .
+        } .
+    } .
+} .
+
+(_:X _:Y _:G) log:onNegativeSurface {
+    _:X 
+        a :PolicyTarget .
+
+    () log:onNegativeSurface {
+        () log:onProhibitionSurface _:G .
+    } .
+
+    () log:onNegativeSurface {
+        () log:onNegativeSurface {
+            () log:onDutySurface {
+                () log:onNegativeSurface _:G .
+            } .
         } .
     } .
 } .
@@ -24,11 +41,26 @@
 
     () log:onPermissionSurface _:G .
 
-    (_:New) log:onNegativeSurface {
+    () log:onNegativeSurface {
         _:X a :PolicyTarget . # Due to a bug in eye this line is needed
         () log:onNegativeSurface {
             () log:onProhibitionSurface _:G .
         } .
+    } .
+} .
+
+
+(_:X _:Y _:G) log:onNegativeSurface {
+    _:X 
+        a :PolicyTarget .
+
+    () log:onNegativeSurface {
+        () log:onPermissionSurface _:G .
+    } .
+
+    () log:onNegativeSurface {
+        _:X a :PolicyTarget . # Due to a bug in eye this line is needed
+        () log:onProhibitionSurface _:G .
     } .
 } .
 
