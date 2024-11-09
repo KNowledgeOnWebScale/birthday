@@ -2,7 +2,7 @@
 
 A RDF Surfaces implementation trying to implement the birthday app with deontic rules.
 
-## Minimal Deontic rules
+## Expriment 1. Minimal Deontic rules
 
 Minimal deontic logic : "Sartor G (2006) Fundamental legal concepts: a formal and teleological characterisation. Artif Intell Law 14(1–2):101–142"
 
@@ -33,9 +33,14 @@ In this project we also assume :
 
 But, do not include such a rule for Permissions. One could have a permission to call and not call your mother. But, not a duty to call and not call your mother.
 
-## Standard Deontic Rules
+This logic is quite unsatisfactory:
 
-We also have an attempt on a Notation3 implementation of deonitic rules using Standard Deontic Rules : https://plato.stanford.edu/entries/logic-deontic/
+- [8] with [1] gives the conclusion that **Prohibition(T)** = false 
+- [9] with [1] gives the conclusion that **Duty(T)** = false
+
+## Experiment 2 Standard Deontic Rules
+
+An attempt with a Notation3 implementation of deonitic rules using Standard Deontic Rules : https://plato.stanford.edu/entries/logic-deontic/
 
 We implement a fragment of standard deontic logic using derived rules that don't contain any 
 negations:
