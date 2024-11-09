@@ -2,7 +2,7 @@
 
 A RDF Surfaces implementation trying to implement the birthday app with deontic rules.
 
-## Deontic rules
+## Minimal Deontic rules
 
 Minimal deontic logic : "Sartor G (2006) Fundamental legal concepts: a formal and teleological characterisation. Artif Intell Law 14(1–2):101–142"
 
@@ -33,6 +33,26 @@ In this project we also assume :
 
 But, do not include such a rule for Permissions. One could have a permission to call and not call your mother. But, not a duty to call and not call your mother.
 
+## Standard Deontic Rules
+
+We also have an attempt on a Notation3 implementation of deonitic rules using Standard Deontic Rules : https://plato.stanford.edu/entries/logic-deontic/
+
+We implement a fragmenent of standard deontic logic using derived rules that don't contain any 
+negations:
+
+- [1] : p => Duty(p)
+- [2] : Duty(p) => Prem(p)
+
+and derived
+
+- [3] : Perm(p) & Proh(p) => false 
+- [4] : Perm(p) & Proh(p) => false 
+- [5] : p & Proh(p) => false 
+- [6] : Duty(p & q) => Duty(p) & Duty(q)
+- [7] : Perm(p & q) => Perm(p) & Perm(q)
+- [8] : Proh(p & q) => Proh(p) v Proh(q) (not implemented: standard Notation3 doesn't have disjunctions in the conclusion)
+
+ 
 ## Policy
 
 A policy is on a target (a URL) and defined what actions are allowed on a target. E.g. the following policy says that in Room101 it is allowed to talk loudy.

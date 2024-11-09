@@ -1,0 +1,13 @@
+@prefix : <http://example.org/ns#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+
+:Room101 a :PolicyTarget.
+() log:onPermissionSurface {
+    :Room101 :action :UseBathRoom.
+}.
+() log:onPermissionSurface {
+    :Room101 a :PolicyTarget.
+}.
+() log:onDutySurface {
+    :Room101 a :PolicyTarget.
+}.

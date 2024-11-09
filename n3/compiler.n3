@@ -1,0 +1,104 @@
+@prefix : <http://example.org/ns#> .
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+
+# p => Duty(p)
+{
+    ?S ?P ?O .
+    ?P log:namespace ?N .
+    ?N log:notEqualTo "http://www.w3.org/2000/10/swap/log#" .
+}
+=>
+{
+    () log:onDutySurface { ?S ?P ?O }.
+} .
+
+# Duty(p) => Perm(p)
+{
+    () log:onDutySurface { ?S ?P ?O } .
+}
+=> 
+{
+    () log:onPermissionSurface { ?S ?P ?O } .
+} .
+
+# Derived Standard Deonitic Logic rules
+# Perm(p) & Proh(p) => false .
+{
+    () log:onPermissionSurface ?G .
+    () log:onProhibitionSurface ?G .
+}
+=> false .
+
+# Duty(p) & Proh(p) => false .
+{
+    () log:onDutySurface ?G .
+    () log:onProhibitionSurface ?G .
+}
+=> false .
+
+# p & Proh(p) => false
+{
+    ?SCOPE log:includes { ?S ?P ?O } .
+    () log:onProhibitionSurface { ?S ?P ?O } .
+}
+=> false .
+
+# Duty(p & q) => Duty(p) & Duty(q)
+{
+    () log:onDutySurface ?G .
+    ?G log:includes { ?S ?P ?O } .
+}
+=>
+{
+    () log:onDutySurface { ?S ?P ?O } .
+} .
+
+# Perm(p & q) => Perm(p) & Perm(q)
+{
+    () log:onPermissionSurface ?G .
+    ?G log:includes { ?S ?P ?O } .
+}
+=>
+{
+    () log:onPermissionSurface { ?S ?P ?O } .
+} .
+
+# Proh(p & q) => Proh(p) v Proh(q)
+## ???
+
+# equivalentTarget relates PolicyTargets
+{
+    ?X a :PolicyTarget .
+    ?Y a :PolicyTarget .
+    ?X log:notEqualTo ?Y .
+
+    () log:onDutySurface { ?X ?P ?O} .
+}
+=>
+{
+    () log:onDutySurface { ?Y ?P ?O} .
+} .
+
+{
+    ?X a :PolicyTarget .
+    ?Y a :PolicyTarget .
+    ?X log:notEqualTo ?Y .
+
+    () log:onPermissionSurface { ?X ?P ?O} .
+}
+=>
+{
+    () log:onPermissionSurface { ?Y ?P ?O} .
+} .
+
+{
+    ?X a :PolicyTarget .
+    ?Y a :PolicyTarget .
+    ?X log:notEqualTo ?Y .
+
+    () log:onProhibitionSurface { ?X ?P ?O} .
+}
+=>
+{
+    () log:onProhibitionSurface { ?Y ?P ?O} .
+} .
