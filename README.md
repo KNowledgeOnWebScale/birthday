@@ -46,7 +46,7 @@ negations:
 and derived
 
 - [3] : Perm(p) & Proh(p) => false 
-- [4] : Perm(p) & Proh(p) => false 
+- [4] : Duty(p) & Proh(p) => false 
 - [5] : p & Proh(p) => false 
 - [6] : Duty(p & q) => Duty(p) & Duty(q)
 - [7] : Perm(p & q) => Perm(p) & Perm(q)
