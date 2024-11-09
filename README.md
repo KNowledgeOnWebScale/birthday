@@ -37,7 +37,7 @@ But, do not include such a rule for Permissions. One could have a permission to 
 
 We also have an attempt on a Notation3 implementation of deonitic rules using Standard Deontic Rules : https://plato.stanford.edu/entries/logic-deontic/
 
-We implement a fragmenent of standard deontic logic using derived rules that don't contain any 
+We implement a fragment of standard deontic logic using derived rules that don't contain any 
 negations:
 
 - [1] : p => Duty(p)
